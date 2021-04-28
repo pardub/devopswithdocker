@@ -1,1 +1,20 @@
+docker container run -d --name ub1 -it ubuntu:latest sh -c 'echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;'
+e1c1f42e843b46bc253498ed4ac85eb3bc60374aa9471c21085c848ee57f3ae1
+docker exec ub1 sh -c 'apt-get update && apt-get install curl -y'                                                                                                                       ✔  19:04:32  
+Get:1 http://archive.ubuntu.com/ubuntu focal InRelease [265 kB]
+Get:2 http://security.ubuntu.com/ubuntu focal-security InRelease [109 kB
+.
+.
+.
+docker attach ub1 
+
+helsinki.fi
+Searching..
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
 
