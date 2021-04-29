@@ -1,1 +1,26 @@
+###file script.sh
+#!/bin/sh
+echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;
 
+###file dockerfile
+FROM ubuntu:18.04
+RUN apt-get update && apt-get install curl -y
+WORKDIR /app
+copy script.sh .
+CMD ./script.sh
+
+
+###Commands
+docker build -t curler
+
+    ~/docker/ex1_8  docker run -it curler                                                                                                                                                    1 ✘  15:25:26  
+Input website:
+helsinki.fi
+Searching..
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
